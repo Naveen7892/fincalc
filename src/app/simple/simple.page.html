@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="home" animation="nav-title-slide-ios7"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Simple Interest</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <!-- Principle -->
+    <ion-item>
+      <ion-label stacked>Principle: </ion-label>
+      <ion-input type="number" [(ngModel)]="principle"></ion-input>
+    </ion-item>
+    <!-- Interest -->
+    <ion-item>
+      <ion-label stacked>Interest (%): </ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+    <!-- Interest w.r.t Month/year -->
+    <ion-item>
+      <ion-label>Period</ion-label>
+      <ion-select [(ngModel)]='interestPeriodType' name='interest' popover>
+        <ion-option value="year">Year</ion-option>
+        <ion-option value="month">Month</ion-option>
+      </ion-select>
+    </ion-item>
+    <!-- Term -->
+    <ion-item>
+      <ion-label stacked>Term: </ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+    <!-- Interest w.r.t Month/year -->
+    <ion-item>
+      <ion-label>Period</ion-label>
+      <ion-select [(ngModel)]="termPeriodType" name="term" popover>
+        <ion-option value="year">Year</ion-option>
+        <ion-option value="month">Month</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>

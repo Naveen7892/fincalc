@@ -1,12 +1,37 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button animation="nav-title-slide-ios7"></ion-menu-button>
+      </ion-buttons>
     <ion-title>
-      Ionic Blank
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+  <!-- <ion-list>
+
+  </ion-list> -->
+  <ion-card *ngFor="let feature of $calcOptions" (click)="goToPage(feature.path)" [routerLink]="[feature.path]">
+
+    <ion-card-header>
+      {{feature.title}}
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{feature.desc}}
+    </ion-card-content>
+  
+  </ion-card>
 </ion-content>
+<!-- 
+<ion-menu [content]="mycontent">
+  <ion-content>
+    <ion-list>
+      <p>some menu content, could be list items</p>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav> -->
