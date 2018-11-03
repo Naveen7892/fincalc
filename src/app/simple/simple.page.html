@@ -8,6 +8,26 @@
 </ion-header>
 
 <ion-content padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col size-lg="10" size-xs="12">
+          <ion-item>
+            <ion-label stacked>Interest (%): </ion-label>
+            <ion-input type="number" [(ngModel)]="interest"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size-lg="2" size-xs="12">
+          <ion-item>
+            <ion-label></ion-label>
+            <ion-select [(ngModel)]="interestPeriodType" ok-text="Okay" cancel-text="Dismiss" padding="0" color="green">
+              <ion-select-option value="year">Year</ion-select-option> 
+              <ion-select-option value="month">Month</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
   <ion-list>
     <!-- Principle -->
     <ion-item>
@@ -15,30 +35,22 @@
       <ion-input type="number" [(ngModel)]="principle"></ion-input>
     </ion-item>
     <!-- Interest -->
-    <ion-item>
-      <ion-label stacked>Interest (%): </ion-label>
-      <ion-input type="number"></ion-input>
-    </ion-item>
-    <!-- Interest w.r.t Month/year -->
-    <ion-item>
-      <ion-label>Period</ion-label>
-      <ion-select [(ngModel)]='interestPeriodType' name='interest' popover>
-        <ion-option value="year">Year</ion-option>
-        <ion-option value="month">Month</ion-option>
-      </ion-select>
-    </ion-item>
     <!-- Term -->
     <ion-item>
       <ion-label stacked>Term: </ion-label>
-      <ion-input type="number"></ion-input>
+      <ion-input type="number" [(ngModel)]="term"></ion-input>
     </ion-item>
-    <!-- Interest w.r.t Month/year -->
+    <!-- Term period w.r.t Month/year -->
     <ion-item>
-      <ion-label>Period</ion-label>
-      <ion-select [(ngModel)]="termPeriodType" name="term" popover>
-        <ion-option value="year">Year</ion-option>
-        <ion-option value="month">Month</ion-option>
+      <ion-label>Term period</ion-label>
+      <ion-select [(ngModel)]="termPeriodType" ok-text="Okay" cancel-text="Dismiss">
+        <ion-select-option value="year">Year</ion-select-option>
+        <ion-select-option value="month">Month</ion-select-option>
       </ion-select>
+    </ion-item>
+    <!-- Submit button -->
+    <ion-item>
+      <ion-button color="primary" (click)="calculateSimpleInterest()">Calculate</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
